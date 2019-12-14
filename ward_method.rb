@@ -2,7 +2,7 @@
 
 require 'csv'
 require 'logger'
-require_relative 'calculation'
+require_relative 'calc'
 
 class WardMethod
   attr_reader :input_filename, :is_examination, :logger, :sample
