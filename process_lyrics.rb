@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'crawl_lyrics'
 require_relative 'convert_lyrics_to_nodes'
 require_relative 'count_lyrics_nodes'
@@ -13,4 +15,3 @@ ConvertLyricsToNodes.new(input_filename: LYRICS_LIST_CSV, output_filename: LYRIC
 CountLyricsNodes.new(input_filename: LYRICS_NODES_CSV, output_filename: SONGS_WITH_NODES_COUNT_CSV).execute
 WardMethod.new(input_filename: SONGS_WITH_NODES_COUNT_CSV).examine_dissimilarity # => 7
 WardMethod.new(input_filename: SONGS_WITH_NODES_COUNT_CSV).execute(clusters_count: 7)
-

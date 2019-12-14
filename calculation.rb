@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Calc
   class << self
     def sq(n)
@@ -10,7 +12,7 @@ class Calc
 
     def cg(sample:, array:, name:, member_variable_names:)
       cg = sample.new(name: name)
-      member_variable_names.each_with_object(cg) do |variable_name, cg_sample|
+      member_variable_names.each_with_object(cg) do |variable_name|
         points = array.map(&variable_name)
         cg.send("#{variable_name}=", avg(points))
       end
@@ -34,4 +36,3 @@ class Calc
     end
   end
 end
-

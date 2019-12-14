@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'natto'
 
 class MorphAnalysis
-  MECAB_DIC_DIRPATH = "/usr/local/lib/mecab/dic/mecab-ipadic-neologd"
+  MECAB_DIC_DIRPATH = '/usr/local/lib/mecab/dic/mecab-ipadic-neologd'
 
   attr_reader :nm, :text
 

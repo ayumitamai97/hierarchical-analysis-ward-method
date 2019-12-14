@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 class CountLyricsNodes
@@ -15,7 +17,7 @@ class CountLyricsNodes
       songs.each do |song|
         csv << [
           song[:songname], # Expecting songname to be unique
-          *all_nodes.map{ |node| song[:nodes].count(node) },
+          *all_nodes.map { |node| song[:nodes].count(node) }
         ]
       end
     end
@@ -28,7 +30,7 @@ class CountLyricsNodes
       songs << {
         musician: row[0],
         songname: row[1],
-        nodes: row[2..-1],
+        nodes: row[2..-1]
       }
     end
   end

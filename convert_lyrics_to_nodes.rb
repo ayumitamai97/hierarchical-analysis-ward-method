@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 require_relative 'morph_analysis'
 
@@ -15,7 +17,7 @@ class ConvertLyricsToNodes
         csv << [
           song[:musician],
           song[:songname],
-          *MorphAnalysis.new(text: song[:lyrics]).execute,
+          *MorphAnalysis.new(text: song[:lyrics]).execute
         ]
       end
     end
@@ -28,7 +30,7 @@ class ConvertLyricsToNodes
       songs << {
         musician: row['musician'],
         songname: row['songname'],
-        lyrics: row['lyrics'],
+        lyrics: row['lyrics']
       }
     end
   end

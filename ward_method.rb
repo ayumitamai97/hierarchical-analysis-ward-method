@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 require 'logger'
 require_relative 'calculation'
@@ -20,7 +22,7 @@ class WardMethod
     multiple_analysis_results.each_with_object([]) do |(clusters_count, result), summary|
       summary << {
         clusters_count: clusters_count,
-        dissimilarity: Math.log10(result[:dissimilarity]),
+        dissimilarity: Math.log10(result[:dissimilarity])
       }
     end
   end
@@ -31,7 +33,7 @@ class WardMethod
       clusters = execute(clusters_count: count)
       results_of_analysis[count] = {
         clusters: clusters,
-        dissimilarity: clusters.max{ |cl_1, cl_2| cl_1.dissimilarity <=> cl_2.dissimilarity }.dissimilarity,
+        dissimilarity: clusters.max { |cl_1, cl_2| cl_1.dissimilarity <=> cl_2.dissimilarity }.dissimilarity
       }
     end
   end
@@ -98,7 +100,7 @@ class WardMethod
 
       provisional_clusters << ProvisionalCluster.new(
         diff_between_sqds: sum_of_sqd_between_cu_cg_and_sample - sum_of_sqd_between_c1_cg_and_sample - sum_of_sqd_between_c2_cg_and_sample,
-        c1: c1, c2: c2,
+        c1: c1, c2: c2
       )
     end
     provisional_clusters
@@ -123,11 +125,10 @@ class WardMethod
           csv << [
             i + 1,
             sample.name,
-            *member_variable_names.map { |mem| sample.public_send(mem) },
+            *member_variable_names.map { |mem| sample.public_send(mem) }
           ]
         end
       end
     end
   end
 end
-
